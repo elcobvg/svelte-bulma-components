@@ -1,8 +1,8 @@
-export { default as Dropdown } from './components/dropdown/Dropdown.html'
-export { default as DropdownItem } from './components/dropdown/DropdownItem.html'
-export { default as DropdownLink } from './components/dropdown/DropdownLink.html'
-export { default as DropdownDivider } from './components/dropdown/DropdownDivider.html'
+export { default as Dropdown } from './dropdown/Dropdown.html'
+export { default as DropdownItem } from './dropdown/DropdownItem.html'
+export { default as DropdownLink } from './dropdown/DropdownLink.html'
+export { default as DropdownDivider } from './dropdown/DropdownDivider.html'
 
-export { default as Modal } from './components/modal/Modal.html'
-export { default as ModalCard } from './components/modal/ModalCard.html'
+export { default as Modal } from './modal/Modal.html'
+export { default as ModalCard } from './modal/ModalCard.html'
 
