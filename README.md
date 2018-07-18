@@ -1,20 +1,25 @@
-# svelte-bulma-forms
-Bulma form components for [Svelte.js](https://svelte.technology/)
+# svelte-bulma-components
+Library of UI components to be used in [Svelte.js](https://svelte.technology/) or standalone.
 
-These components offer a convenient way to build HTML forms, either in **Svelte** projects or in **plain JavaScript.**
+A convenient way to implement [**interactive Bulma components**](https://bulma.io/documentation/components/).
 
-**Features**
+### Status
+Note that this is still **a work in progress**:
 
-* all form elements as defined in Bulma
-* built-in basic input validation, easily extendable
-* controls and fields emit events for your app to hook into
+- [x] Dropdown
+- [x] Modal
+- [x] ModalCard
+- [ ] Navbar
+- [ ] Pagination
+- [ ] Tabs
 
-#### Demo at http://svelte-bulma-forms.surge.sh/
+
+**Demo at http://svelte-bulma-components.surge.sh/**
 
 
 ## Install
 
-`npm install svelte-bulma-forms`
+`npm install svelte-bulma-components`
 
 ## Use
 
@@ -22,16 +27,16 @@ Import the components you need in your Svelte project.
 
 ````javascript
 import {
-  TextField,
-  DateField,
-  EmailField
-} from 'svelte-bulma-forms/module'
+  Dropdown,
+  DropdownLink,
+  Modal
+} from 'svelte-bulma-components/module'
 
 export default {
   components: {
-    TextField,
-    DateField,
-    EmailField,
+    Dropdown,
+    DropdownLink,
+    Modal,
 	...
   }
 }
@@ -39,15 +44,11 @@ export default {
 And then use them like so:
 
 ````html
-<TextField name="name" label="Name" horizontal />
-
-<CheckboxGroup horizontal>
-  <CheckboxControl name="agree" required>
-    I agree to the <a href="#">terms and conditions</a>
-  </CheckboxControl>
-</CheckboxGroup>
-
-<ButtonField state="info" type="submit" horizontal />
+  <Dropdown label="Dropdown">
+    <DropdownLink href="/">A dropdown link</DropdownLink>
+    <DropdownLink href="/" active>This link is active</DropdownLink>
+    <DropdownLink href="/">Another link item</DropdownLink>
+  </Dropdown>
 ````
 **Don't forget to include the Bulma and Font Awesome CSS files!**
 
@@ -69,81 +70,34 @@ require('/path/to/node_modules/font-awesome/css/font-awesome.min.css')
 
 ## Available elements
 
-### Form fields
+### Dropdown
 
-**Form fields** are composite components offering the most convenient way to build forms. The following fields are available:
+An interactive **dropdown menu** for discoverable content
 
-- `AutoCompleteField`
-- `ButtonField`
-- `DateField`
-- `EmailField`
-- `FileField`
-- `PasswordField`
-- `PasswordMaskField`
-- `SelectField`
-- `TextareaField`
-- `TextField`
+### Modal
 
-See [**form fields**](https://github.com/elcobvg/svelte-bulma-forms/tree/master/src/fields)
+A classic **modal** overlay, in which you can include *any* content you want
 
-### Form controls
+### ModalCard
 
-In cases where you may wish to use **form input fields** by themselves, you can use [**form controls**](https://github.com/elcobvg/svelte-bulma-forms/tree/master/src/controls). The following controls are available:
+A **modal card**, with a head, a body and a foot
 
-- `AutoCompleteControl`
-- `ButtonControl`
-- `CheckboxControl`
-- `FileControl`
-- `InputControl`
-- `MultiSelectControl`
-- `RadioControl`
-- `SelectControl`
-- `TextareaControl`
+### Navbar
 
-### Form groups
+A responsive horizontal **navbar** that can support images, links, buttons, and dropdowns
 
-Controls like **checkboxes** and **radio buttons** need to be grouped together. There is also a group for regular inputs and grouped **buttons**:
+### Pagination
 
-- `CheckboxGroup`
-- `InputGroup`
-- `RadioGroup`
+A responsive, usable, and flexible **pagination**
 
-See [**form groups**](https://github.com/elcobvg/svelte-bulma-forms/tree/master/src/groups)
+### Tabs
 
-## Further information
-
-### Events
-Each input element emits a `change` event with its `value` on input change, which you can use in your app according to your needs.
-
-### Custom input validation
-In addition to the built-in default input validation, you can supply your own validation rules and messages. Read all about it in the [**validation documentation**](https://github.com/elcobvg/svelte-bulma-forms/tree/master/src/validation)
-
+Simple responsive horizontal navigation **tabs**, with different styles
 
 ## Made with Svelte
-It's made with [Svelte](https://svelte.technology/), which means you don't need any JS framework. Just use the file in the `dist` directory in any Javascript project:
-
-**include the bundle:** 
-
-````html
-<script src="svelte-bulma-forms/dist/index.js"></script>
-````
-**create components like so:**
-
-````javascript
-const { EmailField } = SvelteBulmaForms
-
-const emailInput = new EmailField({
-  target: document.querySelector('#email'),
-  data: { 
-    name: 'email',
-    label: 'Email address',
-    horizontal: true
-  }
-})
-````
+It's made with [Svelte](https://svelte.technology/), which means you don't need any JS framework. Just use the file in the `dist` directory in any Javascript project.
 
 ### Reference
 
-- https://bulma.io/documentation/form/general
+- https://bulma.io/documentation/components/
 - https://svelte.technology/guide
-- https://fontawesome.com/v4.7.0/
