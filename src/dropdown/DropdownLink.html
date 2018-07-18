@@ -1,0 +1,11 @@
+<a {href} class="dropdown-item{active ? ' is-active' : ''}">
+  <slot></slot>
+</a>
+
+<script>
+export default {
+  data: () => ({
+    active: false
+  })
+}
+</script>

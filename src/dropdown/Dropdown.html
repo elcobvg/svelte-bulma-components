@@ -1,0 +1,56 @@
+<svelte:window on:click="close()" />
+<div class="{classes}" on:click="event.stopPropagation()">
+  <div class="dropdown-trigger">
+    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" on:click="toggle()">
+      <span>{label}</span>
+      <span class="icon is-small">
+        <i class="fa fa-angle-{icon}" aria-hidden="true"></i>
+      </span>
+    </button>
+  </div>
+  <div class="dropdown-menu" id="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+      <slot><!-- dropdown items go here --></slot>
+    </div>
+  </div>
+</div>
+
+<script>
+
+export default {
+  data: () => ({
+    active: false,
+    hoverable: false,
+    label: '',
+    right: false,
+    up: false
+  }),
+  computed: {
+    icon: ({ active, up }) => {
+      if (up) {
+        return active ? 'down' : 'up'
+      }
+      return active ? 'up' : 'down'
+    },
+    classes: ({ active, hoverable, right, up }) => {
+      const classList = ['dropdown']
+
+      active && classList.push('is-active')
+      hoverable && classList.push('is-hoverable')
+      right && classList.push('is-right')
+      up && classList.push('is-up')
+
+      return classList.join(' ')
+    }
+  },
+  methods: {
+    close () {
+      this.set({ active: false })
+    },
+    toggle () {
+      const { active } = this.get()
+      this.set({ active: !active })
+    }
+  }
+}
+</script>

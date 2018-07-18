@@ -1,0 +1,45 @@
+<div class="modal{active ? ' is-active' : ''}">
+  <div class="modal-background" on:click="cancel()" />
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">
+        <slot name="title"><!-- Modal title --></slot>
+      </p>
+      <button class="delete" aria-label="close" on:click="cancel()" />
+    </header>
+    <section class="modal-card-body">
+      <slot name="content"><!-- Content --></slot>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-{color || 'success'}" on:click="success()">
+        <slot name="success">Submit</slot>
+      </button>
+      <button class="button" on:click="cancel()">
+        <slot name="cancel">Cancel</slot>
+      </button>
+    </footer>
+  </div>
+</div>
+
+<script>
+export default {
+  data: () => ({
+    active: false
+  }),
+  methods: {
+    success () {
+      this.set({ active: false })
+      this.fire('close', 'success')
+    },
+    cancel () {
+      this.set({ active: false })
+      this.fire('close', 'cancel')
+    }
+  },
+  onupdate ({ current, previous }) {
+    if (current.active) {
+      this.fire('open', this)
+    }
+  }
+}
+</script>

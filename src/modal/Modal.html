@@ -1,0 +1,23 @@
+<div class="modal{active ? ' is-active' : ''}">
+  <div class="modal-background" on:click="set({ active: false })" />
+  <div class="modal-content" on:click="event.stopPropagation()">
+    <slot><!-- Any other Bulma elements you want --></slot>
+  </div>
+  <button class="modal-close is-large" aria-label="close" on:click="set({ active: false })" />
+</div>
+
+<script>
+export default {
+  data: () => ({
+    active: false
+  }),
+  onupdate ({ current, previous }) {
+    if (previous && !current.active) {
+      this.fire('close', this)
+    }
+    if (current.active) {
+      this.fire('open', this)
+    }
+  }
+}
+</script>
