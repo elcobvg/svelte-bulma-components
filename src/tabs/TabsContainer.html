@@ -1,0 +1,33 @@
+<div class="{classes}">
+  <ul>
+    <slot><!-- tab items go here --></slot>
+  </ul>
+</div>
+
+<script>
+export default {
+  data: () => ({
+    active: 0,
+    align: '',
+    boxed: false,
+    size: '',
+    toggle: false,
+    rounded: false,
+    fullWidth: false
+  }),
+  computed: {
+    classes: ({ align, boxed, size, toggle, rounded, fullWidth }) => {
+      const classList = ['tabs']
+
+      align && classList.push(`is-${align}`)
+      boxed && classList.push('is-boxed')
+      size && classList.push(`is-${size}`)
+      toggle && classList.push('is-toggle')
+      toggle && rounded && classList.push('is-toggle-rounded')
+      fullWidth && classList.push('is-fullwidth')
+
+      return classList.join(' ')
+    }
+  }
+}
+</script>

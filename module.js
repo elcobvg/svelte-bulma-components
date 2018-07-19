@@ -11,5 +11,7 @@ export {
   NavbarItem,
   NavbarDropdown,
   NavbarDivider,
-  Pagination
+  Pagination,
+  TabsContainer,
+  TabItem
 } from './src'

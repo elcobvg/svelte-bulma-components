@@ -15,4 +15,5 @@ export { default as NavbarStart } from './navbar/NavbarStart.html'
 
 export { default as Pagination } from './pagination/Pagination.html'
 
-
+export { default as TabsContainer } from './tabs/TabsContainer.html'
+export { default as TabItem } from './tabs/TabItem.html'

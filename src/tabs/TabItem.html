@@ -1,0 +1,58 @@
+<li id="{uid}" ref:item>
+  <a href="/" on:click="selectTab(event)">
+{#if icon}
+    <span class="icon is-small"><i class="{icon}" aria-hidden="true"></i></span>
+{/if}
+    <span>{label}</span>
+  </a>
+</li>
+
+<script>
+export default {
+  data: () => ({
+    id: null,
+    href: false,
+    active: false,
+    icon: '',
+    label: ''
+  }),
+  computed: {
+    uid: ({ id, label }) => id || slugify(label)
+  },
+  methods: {
+    selectTab (event) {
+      event.preventDefault()
+      const { uid } = this.get()
+      const { item } = this.refs
+      const { children } = this.refs.item.parentNode
+
+      // See: http://clubmate.fi/the-intuitive-and-powerful-foreach-loop-in-javascript/
+      Array.prototype.forEach.call(children, (el, i) => {
+        if (el.id !== uid) {
+          el.classList.remove('is-active')
+        }
+      })
+      item.classList.add('is-active')
+      this.set({ active: true })
+      this.fire('click', uid)
+    }
+  },
+  oncreate () {
+    const { active } = this.get()
+    const { item } = this.refs
+    if (active) {
+      item.classList.add('is-active')
+    }
+  }
+}
+
+/* eslint-disable no-useless-escape */
+function slugify (text) {
+  return text.toString().toLowerCase()
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+    .replace(/^-+/, '')             // Trim - from start of text
+    .replace(/-+$/, '')             // Trim - from end of text
+}
+</script>
