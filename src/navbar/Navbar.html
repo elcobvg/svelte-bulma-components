@@ -23,7 +23,7 @@ export default {
     color: '',
     fixedTop: false,
     fixedBottom: false,
-    transparent: false,
+    transparent: false
   }),
   computed: {
     classes: ({ color, fixedTop, fixedBottom, transparent }) => {
@@ -36,7 +36,7 @@ export default {
 
       return classList.join(' ')
     },
-    activeClass: ({ active }) => active ? ' is-active' : '',
+    activeClass: ({ active }) => active ? ' is-active' : ''
   },
   methods: {
     close () {
@@ -68,4 +68,3 @@ export default {
   }
 }
 </style>
-

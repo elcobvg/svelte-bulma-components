@@ -13,3 +13,6 @@ export { default as NavbarEnd } from './navbar/NavbarEnd.html'
 export { default as NavbarItem } from './navbar/NavbarItem.html'
 export { default as NavbarStart } from './navbar/NavbarStart.html'
 
+export { default as Pagination } from './navbar/Pagination.html'
+
+

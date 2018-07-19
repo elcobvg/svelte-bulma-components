@@ -10,7 +10,7 @@ Note that this is still **a work in progress**:
 - [x] Modal
 - [x] ModalCard
 - [x] Navbar
-- [ ] Pagination
+- [x] Pagination
 - [ ] Tabs
 
 

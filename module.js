@@ -10,5 +10,6 @@ export {
   NavbarEnd,
   NavbarItem,
   NavbarDropdown,
-  NavbarDivider
+  NavbarDivider,
+  Pagination
 } from './src'

@@ -1,0 +1,49 @@
+<li>
+{#if disabled}
+  <a href="/" class="pagination-link" disabled>{page}</a>
+{:elseif Number(current) === page}
+  <a href="/" 
+     class="pagination-link is-current" 
+     aria-label="Page {page}" 
+     aria-current="page" 
+     on:click="noop(event)">{page}</a>
+{:else}
+  <a href="/" 
+     class="pagination-link" 
+     aria-label="Goto page {page}" 
+     on:click="goto(event, page)">{page}</a>
+{/if}
+</li>
+
+<script>
+export default {
+  data: () => ({
+    current: false,
+    page: 1,
+    total: 10,
+    show: 3,
+    showEllipsis: true
+  }),
+  computed: {
+    disabled: ({ current, page, total }) => {
+      if (Number(current) === 1 && Number(page) === 1) {
+        return true
+      }
+      if (Number(current) === Number(total) && Number(page) === Number(total)) {
+        return true
+      }
+      return false
+    }
+  },
+  methods: {
+    noop (event) {
+      event.preventDefault()
+    },
+    goto (event, page) {
+      event.preventDefault()
+      this.set({ current: page })
+      this.fire('change', page)
+    }
+  }
+}
+</script>

@@ -1,0 +1,83 @@
+<nav class="{classes}" role="navigation" aria-label="pagination">
+{#if !noIncremental}
+  {#if Number(current) === 1}
+  <a href="/" class="pagination-previous" disabled>{previous}</a>
+  {:else}
+  <a href="/" class="pagination-previous" on:click="goto(event, Number(current) - 1)">{previous}</a>
+  {/if}
+  {#if Number(current) === Number(total)}
+  <a href="/" class="pagination-next" disabled>{next}</a>
+  {:else}
+  <a href="/" class="pagination-next" on:click="goto(event, Number(current) + 1)">{next}</a>
+  {/if}
+{/if}
+{#if !noList}
+  <ul class="pagination-list">
+    <PaginationLink page="1" {current} {total} {show} on:change="setPage(event)" />
+{#if showLeft > 1}
+    <li><span class="pagination-ellipsis">&hellip;</span></li>
+{/if}
+{#each pages as page}
+    <PaginationLink {page} {current} {total} {show} on:change="setPage(event)" />
+{/each}
+{#if showRight < (Number(total) - 1)}
+    <li><span class="pagination-ellipsis">&hellip;</span></li>
+{/if}
+    <PaginationLink page="{total}" {current} {total} {show} on:change="setPage(event)" />
+  </ul>
+{/if}
+</nav>
+
+<script>
+export default {
+  components: {
+    PaginationLink: './PaginationLink.html'
+  },
+  data: () => ({
+    current: 1,
+    total: 10,
+    show: 5,
+    noIncremental: false,
+    noList: false,
+    align: '',
+    rounded: false,
+    size: '',
+    previous: 'Previous',
+    next: 'Next page'
+  }),
+  computed: {
+    currentClass: ({ current }) => current ? ' is-current' : '',
+    classes: ({ align, rounded, size }) => {
+      const classList = ['pagination']
+
+      align && classList.push(`is-${align}`)
+      size && classList.push(`is-${size}`)
+      rounded && classList.push('is-rounded')
+
+      return classList.join(' ')
+    },
+    showLeft: ({ current, show }) => Number(current) - Math.floor(show / 2),
+    showRight: ({ current, show }) => Number(current) + Math.floor(show / 2),
+    pages: ({ total, showLeft, showRight }) => {
+      const list = []
+      for (let i = showLeft; i <= showRight; i++) {
+        if (i > 1 && i < total) {
+          list.push(i)
+        }
+      }
+      return list
+    }
+  },
+  methods: {
+    goto (event, page) {
+      event.preventDefault()
+      this.set({ current: page })
+      this.fire('change', page)
+    },
+    setPage (page) {
+      this.set({ current: page })
+      this.fire('change', page)
+    }
+  }
+}
+</script>
