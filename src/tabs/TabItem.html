@@ -24,10 +24,9 @@ export default {
       event.preventDefault()
       const { uid } = this.get()
       const { item } = this.refs
-      const { children } = this.refs.item.parentNode
 
       // See: http://clubmate.fi/the-intuitive-and-powerful-foreach-loop-in-javascript/
-      Array.prototype.forEach.call(children, (el, i) => {
+      Array.prototype.forEach.call(item.parentNode.children, (el, i) => {
         if (el.id !== uid) {
           el.classList.remove('is-active')
         }

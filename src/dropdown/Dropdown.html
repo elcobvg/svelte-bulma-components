@@ -2,7 +2,7 @@
 <div class="{classes}" on:click="event.stopPropagation()">
   <div class="dropdown-trigger">
     <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" on:click="toggle()">
-      <span>{label}</span>
+      <span>{@html label}</span>
       <span class="icon is-small">
         <i class="fa fa-angle-{icon}" aria-hidden="true"></i>
       </span>

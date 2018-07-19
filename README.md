@@ -180,6 +180,7 @@ A responsive horizontal **navbar** that can support images, links, buttons, and 
 | fixedBottom | Boolean | false | false | fixes navbar to bottom
 | color | String | - | false | background color of the navbar
 | transparent | Boolean | false | false | sets navbar transparency
+| noBodyClass | Boolean | false | false | do not add classes to `<body>` 
 
 
 ## Pagination
@@ -243,6 +244,10 @@ Tab items emit an `onclick` event with the `#id` of the selected tab.
 
 ## Made with Svelte
 It's made with [Svelte](https://svelte.technology/), which means you don't need any JS framework. Just use the file in the `dist` directory in any Javascript project.
+
+### See also
+
+- https://github.com/elcobvg/svelte-bulma-forms Bulma form components for Svelte
 
 ### Reference
 

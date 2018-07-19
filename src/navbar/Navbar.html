@@ -23,7 +23,8 @@ export default {
     color: '',
     fixedTop: false,
     fixedBottom: false,
-    transparent: false
+    transparent: false,
+    noBodyClass: false
   }),
   computed: {
     classes: ({ color, fixedTop, fixedBottom, transparent }) => {
@@ -49,12 +50,17 @@ export default {
     }
   },
   onupdate ({ changed, current, previous }) {
+    if (current.noBodyClass) {
+      return
+    }
     const body = document.querySelector('body')
     if (changed.fixedTop) {
-      body.classList.toggle('has-navbar-fixed-top')
+      current.fixedTop ? body.classList.add('has-navbar-fixed-top')
+                       : body.classList.remove('has-navbar-fixed-top')
     }
     if (changed.fixedBottom) {
-      body.classList.toggle('has-navbar-fixed-bottom')
+      current.fixedBottom ? body.classList.add('has-navbar-fixed-bottom')
+                          : body.classList.remove('has-navbar-fixed-bottom')
     }
   }
 }

@@ -1,7 +1,7 @@
   <svelte:window on:click="close()" />
   <div class="navbar-item has-dropdown{activeClass}{hoverableClass}{upClass}" on:click="event.stopPropagation()">
     <span class="navbar-link" on:click="toggle()">
-      {label}
+      {@html label}
     </span>
 
     <div class="navbar-dropdown{rightClass}{boxedClass}">
