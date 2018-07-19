@@ -1,0 +1,71 @@
+<svelte:window on:click="close()" />
+<nav class="{classes}" role="navigation" aria-label="main navigation" on:click="event.stopPropagation()">
+  <div class="navbar-brand">
+    <slot name="brand"><!-- brand items go here --></slot>
+
+    <a href="/" role="button" class="navbar-burger{activeClass}" aria-label="menu" aria-expanded="{active}" on:click="toggle(event)">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div class="navbar-menu{activeClass}">
+    <slot><!-- navbar items --></slot>
+  </div>
+
+</nav>
+
+<script>
+export default {
+  data: () => ({
+    active: false,
+    color: '',
+    fixedTop: false,
+    fixedBottom: false,
+    transparent: false,
+  }),
+  computed: {
+    classes: ({ color, fixedTop, fixedBottom, transparent }) => {
+      const classList = ['navbar']
+
+      color && classList.push(`is-${color}`)
+      fixedTop && classList.push('is-fixed-top')
+      fixedBottom && classList.push('is-fixed-bottom')
+      transparent && classList.push('is-transparent')
+
+      return classList.join(' ')
+    },
+    activeClass: ({ active }) => active ? ' is-active' : '',
+  },
+  methods: {
+    close () {
+      this.set({ active: false })
+    },
+    toggle (event) {
+      event.preventDefault()
+      const { active } = this.get()
+      this.set({ active: !active })
+    }
+  },
+  onupdate ({ changed, current, previous }) {
+    const body = document.querySelector('body')
+    if (changed.fixedTop) {
+      body.classList.toggle('has-navbar-fixed-top')
+    }
+    if (changed.fixedBottom) {
+      body.classList.toggle('has-navbar-fixed-bottom')
+    }
+  }
+}
+</script>
+
+<style>
+@media screen and (min-width: 1088px) {
+  .navbar :global(span) {
+    align-items: stretch;
+    display: flex;
+  }
+}
+</style>
+

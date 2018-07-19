@@ -1,0 +1,24 @@
+{#if href}
+<a class="navbar-item{activeClass}{expandedClass}" {href}>
+  <slot></slot>
+</a>
+{:else}
+<div class="navbar-item{activeClass}{expandedClass}">
+  <slot></slot>
+</div>
+{/if}
+
+<script>
+export default {
+  data: () => ({
+    href: false,
+    active: false,
+    expanded: false
+  }),
+  computed: {
+  	activeClass: ({ active }) => active ? ' is-active' : '',
+  	expandedClass: ({ expanded }) => expanded ? ' is-expanded' : ''
+  }
+}
+</script>
+

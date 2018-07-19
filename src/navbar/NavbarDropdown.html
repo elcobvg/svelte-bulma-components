@@ -1,0 +1,45 @@
+  <svelte:window on:click="close()" />
+  <div class="navbar-item has-dropdown{activeClass}{hoverableClass}{upClass}" on:click="event.stopPropagation()">
+    <span class="navbar-link" on:click="toggle()">
+      {label}
+    </span>
+
+    <div class="navbar-dropdown{rightClass}{boxedClass}">
+      <slot><!-- dropdown items go here --></slot>
+    </div>
+  </div>
+
+<script>
+export default {
+  data: () => ({
+    active: false,
+    boxed: false,
+    hoverable: false,
+    label: ''
+  }),
+  computed: {
+    activeClass: ({ active }) => active ? ' is-active' : '',
+    boxedClass: ({ boxed }) => boxed ? ' is-boxed' : '',
+    hoverableClass: ({ hoverable }) => hoverable ? ' is-hoverable' : '',
+    rightClass: ({ right }) => right ? ' is-right' : '',
+    upClass: ({ dropup }) => dropup ? ' has-dropdown-up' : '',
+  },
+  methods: {
+    close () {
+      this.set({ active: false })
+    },
+    toggle () {
+      const { active } = this.get()
+      this.set({ active: !active })
+    }
+  }
+}
+</script>
+
+<style>
+.navbar-item > .navbar-link {
+  align-items: center;
+  cursor: pointer;
+}
+</style>
+

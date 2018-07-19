@@ -9,7 +9,7 @@ Note that this is still **a work in progress**:
 - [x] Dropdown
 - [x] Modal
 - [x] ModalCard
-- [ ] Navbar
+- [x] Navbar
 - [ ] Pagination
 - [ ] Tabs
 

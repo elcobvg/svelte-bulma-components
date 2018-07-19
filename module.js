@@ -4,5 +4,11 @@ export {
   DropdownLink,
   DropdownDivider,
   Modal,
-  ModalCard
+  ModalCard,
+  Navbar,
+  NavbarStart,
+  NavbarEnd,
+  NavbarItem,
+  NavbarDropdown,
+  NavbarDivider
 } from './src'
