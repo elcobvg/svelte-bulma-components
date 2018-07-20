@@ -1,5 +1,5 @@
 <svelte:window on:click="close()" />
-<nav class="{classes}" role="navigation" aria-label="main navigation" on:click="event.stopPropagation()">
+<nav class="{classes}" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <slot name="brand"><!-- brand items go here --></slot>
 
@@ -45,6 +45,7 @@ export default {
     },
     toggle (event) {
       event.preventDefault()
+      event.stopPropagation()
       const { active } = this.get()
       this.set({ active: !active })
     }

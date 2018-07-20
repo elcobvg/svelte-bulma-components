@@ -247,7 +247,8 @@ It's made with [Svelte](https://svelte.technology/), which means you don't need 
 
 ### See also
 
-- https://github.com/elcobvg/svelte-bulma-forms Bulma form components for Svelte
+- https://www.npmjs.com/package/svelte-bulma-forms Bulma form components for Svelte
+- https://www.npmjs.com/package/svelte-autocomplete a lightweight autocomplete component made with Svelte
 
 ### Reference
 
