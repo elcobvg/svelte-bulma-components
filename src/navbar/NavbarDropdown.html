@@ -1,6 +1,6 @@
   <svelte:window on:click="close()" />
-  <div class="navbar-item has-dropdown{activeClass}{hoverableClass}{upClass}" on:click="event.stopPropagation()">
-    <span class="navbar-link" on:click="toggle()">
+  <div class="navbar-item has-dropdown{activeClass}{hoverableClass}{upClass}">
+    <span class="navbar-link" on:click="toggle(event)">
       {@html label}
     </span>
 
@@ -15,7 +15,9 @@ export default {
     active: false,
     boxed: false,
     hoverable: false,
-    label: ''
+    label: '',
+    dropup: false,
+    right: false
   }),
   computed: {
     activeClass: ({ active }) => active ? ' is-active' : '',
@@ -28,7 +30,8 @@ export default {
     close () {
       this.set({ active: false })
     },
-    toggle () {
+    toggle (event) {
+      event.stopPropagation()
       const { active } = this.get()
       this.set({ active: !active })
     }
