@@ -41,7 +41,7 @@ export default {
 ```
 And then use them like so:
 
-```html
+```xml
   <Dropdown label="Dropdown">
     <DropdownLink href="/">A dropdown link</DropdownLink>
     <DropdownLink href="/" active>This link is active</DropdownLink>
@@ -52,7 +52,7 @@ And then use them like so:
 
 For including styles, you can either place the below styles in the `<head>` of your template:
 
-```html
+```xml
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 ```
@@ -73,7 +73,7 @@ An interactive **dropdown menu** for discoverable content
 
 #### Markup
 
-```html
+```xml
 <Dropdown label="Dropdown">
   <DropdownItem><h5>Dropdown Item</h5>Not clickable</DropdownItem>
   <DropdownDivider />
@@ -98,7 +98,7 @@ A classic **modal** overlay, in which you can include *any* content you want
 
 #### Markup
 
-```html
+```xml
 <Modal {active} on:close="set({ active: false })">
   <p>
     ...
@@ -112,7 +112,7 @@ A **modal card**, with a head, a body and a foot. This components emits an `oncl
 
 #### Markup
 
-```html
+```xml
 <ModalCard {active} color="link" on:close="cardClosed(event)">
   <span slot="title">Modal card title</span>
   <span slot="content">
@@ -144,7 +144,7 @@ A responsive horizontal **navbar** that can support images, links, buttons, and 
 
 #### Markup
 
-```html
+```xml
 <Navbar>
   <!-- navbar-brand -->
   <span slot="brand">
@@ -191,7 +191,7 @@ The pagination component emits an `onchange` event with the <strong>selected pag
 
 #### Markup
 
-```html
+```xml
 <Pagination current="10" total="20" show="5" on:change="gotoPage(event)" />
 ```
 #### Options
@@ -217,7 +217,7 @@ Tab items emit an `onclick` event with the `#id` of the selected tab.
 
 #### Markup
 
-```html
+```xml
 <TabsContainer align="centered" boxed>
   <TabItem active label="Pictures" icon="fa fa-image" on:click="setTab(event)" />
   <TabItem label="Music" on:click="setTab(event)" />
@@ -246,7 +246,7 @@ Tab items emit an `onclick` event with the `#id` of the selected tab.
 
 You can now easily add custom classes to the components by adding a regular `class` attribute:
 
-```html
+```xml
 <Dropdown label="My dropdown" class="my-custom-class">
 ```
 **NOTE:** because Svelte component CSS is scoped, you'll have to add the `global` modifier to your CSS selectors:
