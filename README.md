@@ -23,7 +23,7 @@ A convenient way to implement [**interactive Bulma components**](https://bulma.i
 
 Import the components you need in your Svelte project.
 
-````javascript
+```javascript
 import {
   Dropdown,
   DropdownLink,
@@ -38,31 +38,31 @@ export default {
 	...
   }
 }
-````
+```
 And then use them like so:
 
-````html
+```html
   <Dropdown label="Dropdown">
     <DropdownLink href="/">A dropdown link</DropdownLink>
     <DropdownLink href="/" active>This link is active</DropdownLink>
     <DropdownLink href="/">Another link item</DropdownLink>
   </Dropdown>
-````
+```
 **Don't forget to include the Bulma and Font Awesome CSS files!**
 
 For including styles, you can either place the below styles in the `<head>` of your template:
 
-````html
+```html
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-````
+```
 
 Or you can import them to your webpack/rollup entry point:
 
-````javascript
+```javascript
 require('/path/to/node_modules/bulma/css/bulma.min.css')
 require('/path/to/node_modules/font-awesome/css/font-awesome.min.css')
-````
+```
 
 **Note that you'll have to install** `bulma` **and** `font-awesome` **first**
 
@@ -73,7 +73,7 @@ An interactive **dropdown menu** for discoverable content
 
 #### Markup
 
-````html
+```html
 <Dropdown label="Dropdown">
   <DropdownItem><h5>Dropdown Item</h5>Not clickable</DropdownItem>
   <DropdownDivider />
@@ -81,7 +81,7 @@ An interactive **dropdown menu** for discoverable content
   <DropdownLink href="/" active>This link is active</DropdownLink>
   <DropdownLink href="/">Another link item</DropdownLink>
 </Dropdown>
-````
+```
 #### Options
 
 | Prop | Type | Default | Required | Description |
@@ -98,13 +98,13 @@ A classic **modal** overlay, in which you can include *any* content you want
 
 #### Markup
 
-````html
+```html
 <Modal {active} on:close="set({ active: false })">
   <p>
     ...
   </p>
 </Modal>
-````
+```
 
 ## ModalCard
 
@@ -112,7 +112,7 @@ A **modal card**, with a head, a body and a foot. This components emits an `oncl
 
 #### Markup
 
-````html
+```html
 <ModalCard {active} color="link" on:close="cardClosed(event)">
   <span slot="title">Modal card title</span>
   <span slot="content">
@@ -121,7 +121,7 @@ A **modal card**, with a head, a body and a foot. This components emits an `oncl
   <span slot="success">Save changes</span>
   <span slot="cancel">Cancel</span>            
 </ModalCard>
-````
+```
 #### Options
 
 | Prop | Type | Default | Required | Description |
@@ -144,7 +144,7 @@ A responsive horizontal **navbar** that can support images, links, buttons, and 
 
 #### Markup
 
-````html
+```html
 <Navbar>
   <!-- navbar-brand -->
   <span slot="brand">
@@ -171,7 +171,7 @@ A responsive horizontal **navbar** that can support images, links, buttons, and 
     </NavbarItem>
   </NavbarEnd>
 </Navbar>
-````
+```
 #### Options
 
 | Prop | Type | Default | Required | Description |
@@ -191,9 +191,9 @@ The pagination component emits an `onchange` event with the <strong>selected pag
 
 #### Markup
 
-````html
+```html
 <Pagination current="10" total="20" show="5" on:change="gotoPage(event)" />
-````
+```
 #### Options
 
 | Prop | Type | Default | Required | Description |
@@ -217,14 +217,14 @@ Tab items emit an `onclick` event with the `#id` of the selected tab.
 
 #### Markup
 
-````html
+```html
 <TabsContainer align="centered" boxed>
   <TabItem active label="Pictures" icon="fa fa-image" on:click="setTab(event)" />
   <TabItem label="Music" on:click="setTab(event)" />
   <TabItem label="Videos" on:click="setTab(event)" />
   <TabItem label="Documents" on:click="setTab(event)" />
 </TabsContainer>
-````
+```
 #### Options
 
 | Prop | Type | Default | Required | Description |
