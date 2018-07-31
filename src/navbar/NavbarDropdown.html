@@ -1,5 +1,5 @@
   <svelte:window on:click="close()" />
-  <div class="navbar-item has-dropdown{activeClass}{hoverableClass}{upClass}">
+  <div class="navbar-item has-dropdown{activeClass}{hoverableClass}{upClass} {class}">
     <span class="navbar-link" on:click="toggle(event)">
       {@html label}
     </span>
@@ -14,6 +14,7 @@ export default {
   data: () => ({
     active: false,
     boxed: false,
+    class: '',
     hoverable: false,
     label: '',
     dropup: false,

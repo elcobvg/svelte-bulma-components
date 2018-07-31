@@ -1,1 +1,7 @@
-<div class="navbar-start"><slot></slot></div>
+<div class="navbar-start {class}"><slot></slot></div>
+
+<script>
+export default {
+  data: () => ({ class: '' })
+}
+</script>

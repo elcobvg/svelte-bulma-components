@@ -5,12 +5,12 @@ A convenient way to implement [**interactive Bulma components**](https://bulma.i
 
 ### Available components
 
-- [x] Dropdown
-- [x] Modal
-- [x] ModalCard
-- [x] Navbar
-- [x] Pagination
-- [x] Tabs
+- Dropdown
+- Modal
+- ModalCard
+- Navbar
+- Pagination
+- Tabs
 
 **Demo at http://svelte-bulma-components.surge.sh/**
 
@@ -241,6 +241,21 @@ Tab items emit an `onclick` event with the `#id` of the selected tab.
 | Slot | Default | Required | Description |
 |------|---------|----------|-------------|
 | default | - | true | set of `<TabItem>` tabs
+
+### Custom classes (new in 0.1.4)
+
+You can now easily add custom classes to the components by adding a regular `class` attribute:
+
+```html
+<Dropdown label="My dropdown" class="my-custom-class">
+```
+**NOTE:** because Svelte component CSS is scoped, you'll have to add the `global` modifier to your CSS selectors:
+
+```css
+:global(.my-custom-class) {
+  ...
+}
+```
 
 ## Made with Svelte
 It's made with [Svelte](https://svelte.technology/), which means you don't need any JS framework. Just use the file in the `dist` directory in any Javascript project.

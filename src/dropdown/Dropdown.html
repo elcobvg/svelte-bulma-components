@@ -1,5 +1,5 @@
 <svelte:window on:click="close()" />
-<div class="{classes}" on:click="event.stopPropagation()">
+<div class="{classes} {class}" on:click="event.stopPropagation()">
   <div class="dropdown-trigger">
     <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" on:click="toggle()">
       <span>{@html label}</span>
@@ -20,6 +20,7 @@
 export default {
   data: () => ({
     active: false,
+    class: '',
     hoverable: false,
     label: '',
     right: false,

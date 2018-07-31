@@ -1,9 +1,9 @@
 {#if href}
-<a class="navbar-item{activeClass}{expandedClass}" {href}>
+<a class="navbar-item{activeClass}{expandedClass} {class}" {href}>
   <slot></slot>
 </a>
 {:else}
-<div class="navbar-item{activeClass}{expandedClass}">
+<div class="navbar-item{activeClass}{expandedClass} {class}">
   <slot></slot>
 </div>
 {/if}
@@ -13,6 +13,7 @@ export default {
   data: () => ({
     href: false,
     active: false,
+    class: '',
     expanded: false
   }),
   computed: {

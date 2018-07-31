@@ -1,5 +1,5 @@
 <svelte:window on:click="close()" />
-<nav class="{classes}" role="navigation" aria-label="main navigation">
+<nav class="{classes} {class}" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <slot name="brand"><!-- brand items go here --></slot>
 
@@ -20,6 +20,7 @@
 export default {
   data: () => ({
     active: false,
+    class: '',
     color: '',
     fixedTop: false,
     fixedBottom: false,

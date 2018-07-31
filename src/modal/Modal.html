@@ -1,4 +1,4 @@
-<div class="modal{active ? ' is-active' : ''}">
+<div class="modal{active ? ' is-active' : ''} {class}">
   <div class="modal-background" on:click="set({ active: false })" />
   <div class="modal-content" on:click="event.stopPropagation()">
     <slot><!-- Any other Bulma elements you want --></slot>
@@ -9,7 +9,8 @@
 <script>
 export default {
   data: () => ({
-    active: false
+    active: false,
+    class: ''
   }),
   onupdate ({ current, previous }) {
     if (previous && !current.active) {

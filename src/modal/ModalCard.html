@@ -1,4 +1,4 @@
-<div class="modal{active ? ' is-active' : ''}">
+<div class="modal{active ? ' is-active' : ''} {class}">
   <div class="modal-background" on:click="cancel()" />
   <div class="modal-card">
     <header class="modal-card-head">
@@ -24,7 +24,8 @@
 <script>
 export default {
   data: () => ({
-    active: false
+    active: false,
+    class: ''
   }),
   methods: {
     success () {

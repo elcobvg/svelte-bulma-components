@@ -1,11 +1,12 @@
-<a {href} class="dropdown-item{active ? ' is-active' : ''}">
+<a {href} class="dropdown-item{active ? ' is-active' : ''} {class}">
   <slot></slot>
 </a>
 
 <script>
 export default {
   data: () => ({
-    active: false
+    active: false,
+    class: ''
   })
 }
 </script>

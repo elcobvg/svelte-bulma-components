@@ -1,4 +1,4 @@
-<nav class="{classes}" role="navigation" aria-label="pagination">
+<nav class="{classes} {class}" role="navigation" aria-label="pagination">
 {#if !noIncremental}
   {#if Number(current) === 1}
   <a href="/" class="pagination-previous" disabled>{previous}</a>
@@ -35,6 +35,7 @@ export default {
   },
   data: () => ({
     current: 1,
+    class: '',
     total: 10,
     show: 5,
     noIncremental: false,

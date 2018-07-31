@@ -1,3 +1,9 @@
-<div class="dropdown-item">
+<div class="dropdown-item {class}">
   <slot></slot>
 </div>
+
+<script>
+export default {
+  data: () => ({ class: '' })
+}
+</script>
