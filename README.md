@@ -69,7 +69,8 @@ require('/path/to/node_modules/font-awesome/css/font-awesome.min.css')
 
 ## Dropdown
 
-An interactive **dropdown menu** for discoverable content
+An interactive **dropdown menu** for discoverable content.
+`DropdownLink` elements emit an onclick event with the value of the `href` attribute.
 
 #### Markup
 
@@ -77,7 +78,7 @@ An interactive **dropdown menu** for discoverable content
 <Dropdown label="Dropdown">
   <DropdownItem><h5>Dropdown Item</h5>Not clickable</DropdownItem>
   <DropdownDivider />
-  <DropdownLink href="/">A dropdown link</DropdownLink>
+  <DropdownLink href="/" on:click="logEvent(event)">A dropdown link</DropdownLink>
   <DropdownLink href="/" active>This link is active</DropdownLink>
   <DropdownLink href="/">Another link item</DropdownLink>
 </Dropdown>

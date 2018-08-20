@@ -1,12 +1,17 @@
-<a {href} class="dropdown-item{active ? ' is-active' : ''} {class}">
+<a {href} class="dropdown-item{active ? ' is-active' : ''}" on:click="handleClick(event, href)">
   <slot></slot>
 </a>
 
 <script>
 export default {
   data: () => ({
-    active: false,
-    class: ''
-  })
+    active: false
+  }),
+  methods: {
+    handleClick (event, href) {
+      event.preventDefault()
+      this.fire('click', href)
+    }
+  }
 }
 </script>
